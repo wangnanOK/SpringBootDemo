@@ -133,7 +133,6 @@ public class UserServiceImpl implements UserService {
 		userMapper.insert(user);
 		
 		int a = 1 / 0;
-		
 		user.setIsDelete(1);
 		userMapper.updateByPrimaryKeySelective(user);
 	}
