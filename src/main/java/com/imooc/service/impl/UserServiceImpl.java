@@ -101,6 +101,7 @@ public class UserServiceImpl implements UserService {
 		Example example = new Example(SysUser.class);
 		Example.Criteria criteria = example.createCriteria();
 		
+		//设置条件查询 查询字段是否是实体类的字段 然后在通过传入的参数查询
 		if (!StringUtils.isEmptyOrWhitespace(user.getNickname())) {
 			criteria.andLike("nickname", "%" + user.getNickname() + "%");
 		}
@@ -118,6 +119,7 @@ public class UserServiceImpl implements UserService {
 		List<SysUser> userList = userMapperCustom.queryUserSimplyInfoById(userId);
 		
 		if (userList != null && !userList.isEmpty()) {
+			//将类型List 转换 获取 第0个 返回 否则 返回null
 			return (SysUser)userList.get(0);
 		}
 		

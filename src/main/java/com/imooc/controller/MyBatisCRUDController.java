@@ -80,7 +80,7 @@ public class MyBatisCRUDController {
 		user.setNickname("lee");
 		
 		List<SysUser> userList = userService.queryUserList(user);
-		
+
 		return IMoocJSONResult.ok(userList);
 	}
 	
@@ -91,13 +91,15 @@ public class MyBatisCRUDController {
 			page = 1;
 		}
 
-		int pageSize = 10;
+		int pageSize = 3;
 		
 		SysUser user = new SysUser();
 //		user.setNickname("lee");
 		
 		List<SysUser> userList = userService.queryUserListPaged(user, page, pageSize);
-		
+		for (SysUser sysUser : userList) {
+			System.out.println(sysUser.getId()+"");
+		}
 		return IMoocJSONResult.ok(userList);
 	}
 	
